@@ -1,0 +1,7 @@
+com/iot/relay/consumer/service/SensorDataService.class
+com/iot/relay/consumer/stream/IOTConsumer.class
+com/iot/relay/consumer/config/MongoConfiguration$OffsetDateTimeReadConverter.class
+com/iot/relay/consumer/config/MongoConfiguration$OffsetDateTimeWriteConverter.class
+com/iot/relay/consumer/mapper/SensorDataMapper.class
+com/iot/relay/consumer/config/MongoConfiguration.class
+com/iot/relay/consumer/IotConsumerApplication.class

@@ -1,0 +1,90 @@
+# version: '2'
+# services:
+#   mongodb:
+#     image: mongo:latest
+#     restart: always
+#   iot-consumer:
+#     build:
+#       context: ./
+#       dockerfile: docker/consumer.Dockerfile
+#     ports:
+#       - "8081:8081"
+#     environment:
+#       SPRING_PROFILES_ACTIVE: docker
+#       SPRING_DATA_MONGODB_URI : mongodb://localhost:27017
+#   iot-api:
+#     build:
+#       context: ./
+#       dockerfile: docker/api.Dockerfile
+#     ports:
+#       - "8082:8082"
+#     environment:
+#       SPRING_PROFILES_ACTIVE: docker
+#       SPRING_DATA_MONGODB_URI : mongodb://localhost:27017
+#   iot-model:
+#     build:
+#       context: ./
+#       dockerfile: docker/model.Dockerfile
+#     ports:
+#       - "8086:8086"
+#     environment:
+#       SPRING_PROFILES_ACTIVE: docker
+
+version: '3.6'
+services:
+  mymongodb:
+    image: mongo
+    hostname: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - backdb
+  
+  iot-consumer:
+    build: 
+      context: ./
+      dockerfile: docker/consumer.Dockerfile
+    container_name: iot-consumer
+    environment:
+      - SPRING_DATA_MONGODB_HOST=mongo
+      - SPRING_DATA_MONGODB_PORT=27017
+      - SPRING_DATA_MONGODB_DATABASE=iot
+      - SPRING_PROFILES_ACTIVE=docker
+    ports:
+      - 8081:8081
+    depends_on:
+      - mymongodb
+    networks:
+      - backdb
+  iot-api:
+    build: 
+      context: ./
+      dockerfile: docker/api.Dockerfile
+    container_name: iot-api
+    environment:
+      - SPRING_DATA_MONGODB_HOST=mongo
+      - SPRING_DATA_MONGODB_PORT=27017
+      - SPRING_DATA_MONGODB_DATABASE=iot
+      - SPRING_PROFILES_ACTIVE=docker
+    ports:
+      - 8082:8082
+    depends_on:
+      - mymongodb
+    networks:
+      - backdb
+  iot-model:
+    build: 
+      context: ./
+      dockerfile: docker/model.Dockerfile
+    container_name: iot-model
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    ports:
+      - 8086:8086
+    networks:
+      - backdb    
+    
+networks: 
+  backdb:
+    driver: bridge

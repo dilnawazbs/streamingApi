@@ -1,0 +1,17 @@
+com/iot/relay/model/SensorData.class
+com/iot/relay/model/SensorDataEntity.class
+com/iot/relay/repo/SensorDataRepositoryCustom.class
+com/iot/relay/config/MongoConfiguration$OffsetDateTimeWriteConverter.class
+com/iot/relay/model/SensorDataEntity$SensorDataEntityBuilder.class
+com/iot/relay/repo/SensorDataRepository.class
+com/iot/relay/model/UserDataEntity$UserDataEntityBuilder.class
+com/iot/relay/repo/impl/UserDataRepositoryImpl.class
+com/iot/relay/repo/impl/SensorDataRepositoryCustomImpl.class
+com/iot/relay/repo/UserDataRepository.class
+com/iot/relay/model/UserData.class
+com/iot/relay/config/MongoConfiguration.class
+com/iot/relay/exception/SensorCustomException.class
+com/iot/relay/constants/SensorConstant.class
+com/iot/relay/config/MongoConfiguration$OffsetDateTimeReadConverter.class
+com/iot/relay/repo/UserDataRepositoryCustom.class
+com/iot/relay/model/UserDataEntity.class

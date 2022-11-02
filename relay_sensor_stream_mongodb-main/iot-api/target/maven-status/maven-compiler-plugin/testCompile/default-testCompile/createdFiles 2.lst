@@ -1,0 +1,6 @@
+com/iot/relay/api/controller/UserControllerTest.class
+com/iot/relay/api/config/TestSecurityConfig.class
+com/iot/relay/api/integration/APIIntegrationTest.class
+com/iot/relay/api/controller/SensorRestControllerTest.class
+com/iot/relay/api/service/SensorOperationServiceTest.class
+com/iot/relay/api/repository/SensorDataRepositoryTest.class
